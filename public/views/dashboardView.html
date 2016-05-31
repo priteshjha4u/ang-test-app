@@ -1,0 +1,51 @@
+<div class="well">
+  {{msg}}
+</div>
+<div class="well">
+  <strong>{{::guid}}</strong> <!--one time binding -->
+  <button class="btn" data-ng-click="newId()">{{b}}</button>
+</div>
+
+<div class="well">
+<p>First Name: <input type="text" name="fname" ng-model="person.fname" class="form-control"><br>
+Last Name: <input type="text" name="lname" ng-model="person.lname" class="form-control"></p>
+<p><strong>Full Name: {{ person.fullname() | uppercase }} </strong></p>
+</div>
+
+<div class="well" style="background:#ffe;">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add New Task</h3>
+  </div>
+  <div class="panel-body">
+    <form role="form" name="newTask" class="input-group" ng-submit="addTask(taskName)" novalidate>
+      <input name="taskName" ng-model="taskName" type="text" class="form-control" placeholder="Task Name" aria-required="true" required>
+      <span class="input-group-btn">
+        <input type="submit" class="btn btn-primary" value="Add" ng-disabled="newTask.$invalid">
+      </span>
+    </form>
+   
+  </div>
+</div>
+<div class="alert alert-info" role="alert" ng-show="todos.length"><strong>{{remain()}} of {{todos.length}} completed</strong>&nbsp; <a href="javascript:void(0);" ng-click="clear()" ng-show="checkTasks()">Clear Tasks that are completed </a> </div>
+<div class="table-responsive" ng-show="todos.length">
+  <table class="table table-hover table-bordered">
+    <thead>
+		<tr>
+		  <th style="text-align:center;">#</th>
+		  <th style="text-align:center;">To Do Item</th>
+		  <th style="text-align:center;">Status &nbsp; <input type="checkbox" name="selectall" ng-model="selectAll"></th>
+		  
+		</tr>
+	</thead>
+
+	  <tbody>
+		<tr ng-repeat="t in todos">
+		  <td style="text-align:center;" ng-class="{'task-done':t.done}">{{$index+1}}</td>
+		  <td style="text-align:center;" ng-class="{'task-done':t.done}">{{t.title}}</td>
+		  <td style="text-align:center;" ng-class="{'task-done':t.done}"><input type="checkbox" name="todostatus" ng-model="t.done"></td>
+		</tr>
+	  </tbody>
+  </table>
+</div>
+</div>

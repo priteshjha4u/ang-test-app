@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns="ng">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<title>My AngularJS App</title>
+	<style>
+	.task-done {
+		background: #32cd32;
+	}
+	</style>
+</head>
+<body ng-cloak style="background:#eee;" id="myApp">
+	
+	<div class="panel panel-default" style="margin:20px;">
+	  <div class="panel-heading">
+		<button type="button" class="btn btn-info" data-ng-click="redirect('dashboard')">Dashboard</button>
+		<button type="button" class="btn btn-info" data-ng-click="redirect('mobile')">Mobile</button>
+		<button type="button" class="btn btn-info" data-ng-click="redirect('testA')">testA</button>
+	  </div>
+	  <div class="panel-body">
+		<div ng-view></div>
+	  </div>
+	</div>
+
+	
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
+<script src="services/utility.js"></script>
+<script src="controllers/DashboardCtrl.js"></script>
+<script src="controllers/MobileCtrl.js"></script>
+<script src="app.js"></script>
+
+<script>
+angular.element(document).ready(function() {
+	// bootstrap the app manually
+	setTimeout(function() {
+		angular.bootstrap(document, ['pocApp']);
+	}, 500);
+});
+</script>
+
+</html>

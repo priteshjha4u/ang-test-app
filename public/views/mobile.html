@@ -1,0 +1,10 @@
+<div class="well">
+  {{msg}}
+</div>
+<div class="well">
+  <strong>{{guid}}</strong>
+  <button class="btn" data-ng-click="newId()">New</button><br>
+  <ul ng-show="ids.length" style="list-style:none;border:1px dotted #000;">
+  <li ng-repeat="id in ids">({{$index+1}}) {{id}} <span class="glyphicon glyphicon-remove-circle" ng-click="remove($index)"></span></li>
+  </ul>
+</div>
